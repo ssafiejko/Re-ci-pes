@@ -1,0 +1,4 @@
+base==0.0.0
+dicttoxml==1.7.16
+Django==4.2.7
+import_export==0.3.1

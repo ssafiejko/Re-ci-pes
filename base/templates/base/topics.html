@@ -1,0 +1,14 @@
+<div>
+        <h3>Browse Meals</h3>
+        <br>
+    <div class="topics">
+        <a class ='topic_link' href="{% url 'home' %}">All</a>
+    </div>
+    <div class="topics">
+        {% for topic in topics %}
+            <div>
+                <a class="topic_link" href="{% url 'home' %}?q={{ topic.name }}">{{ topic.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
+    </div>

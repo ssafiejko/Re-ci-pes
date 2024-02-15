@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+<style>
+
+</style>
+  <div class="container">
+
+    <div>
+    {% include 'base/topics.html' %}
+
+    </div>
+
+    <div class="recipeList">
+      <div class="profile">
+        <div class="profile__avatar">
+          <div class="avatar avatar--large active">
+            <img src="{{user.avatar.url}}" />
+          </div>
+        </div>
+        <div class="profile__info">
+          <h3>{{user.name}}</h3>
+          <p>@{{user.username}}</p>
+          {% if request.user == user %}
+          <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+          {% endif %}
+        </div>
+        <div class="profile__about">
+          <h3>About</h3>
+          <p class="about">
+            {{user.bio}}
+          </p>
+        </div>
+      </div>
+
+      <div class="recipeList__header">
+        <div>
+          <h2>Recipes made by {{user.name }}: </a>
+          </h2>
+        </div>
+      </div>
+      {% include 'base/feed_component.html' %}
+
+
+    </div>
+
+    <div>
+
+    {% include 'base/activity_component.html' %}
+
+        </div>
+  </div>
+</main>
+{% endblock content %}
+
+
+

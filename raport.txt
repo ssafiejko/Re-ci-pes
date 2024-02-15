@@ -1,0 +1,24 @@
+- Web application written in Django (zrobione)
+- at least 3 views (zaimplementowane w views.py)
+- at least 3 models (zrobione w models.py)
+- at least 1 template (zrobione, w folderze templates)
+- Styled with CSS sheet (plik static/styles/style.css)
+- The application is aesthetically pleasing
+- The application is responsive
+- The application allows you to create a user account (m.in za pomoca MyUserCreationForm w forms.py)
+- The application allows login (loginPage w views.py)
+- The application allows only the logged-in user to access restricted resources (@login_required w views.py)
+- The application allows password reset (w urls.py za pomoca PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView,
+    PasswordResetCompleteView)
+- The application has a form with at least 4 different types of fields (forms.py)
+- The application allows you to save or modify records (funkcje np createRecipe, updateRecipe w views.py)
+- The application has a view that allows you to display the saved records (np recipe w views.py)
+-The form has validation rules on the server side (np używajac forma do rejestracji wymagany jest prawdidłowy format emaila czy hasła ( wbudowany UserCreationForm))
+-The form has validation rules on the client side (np w views.py w loginPage error gdy próbuje zalogować się niezarejestrowany użytkownik
+czy w registerPage zarejestrować użytkownik który jest zarejestrowany)
+- Data can be modified from the admin panel level (tak)
+- An erroneously filled form returns meaningful error messages and does not force the user to re-fill the form all over again (tak rejestracja za pomocą UserCreationForm)
+- The application follow good programming practices
+- requirements.txt zrobione
+- The application has a sensible API endpoint, returning data in JSON and XML depending on the query (folder api)
+

@@ -1,0 +1,13 @@
+<h3>Recent activities</h3>
+        <br>
+        {% for comment in comments %}
+            <div>
+                <img id='act_img' width='50px' src="{{ comment.user.avatar.url }}">
+                <small> <a href="{%  url 'user-profile' comment.user.id %}" >@{{ comment.user }}</a> <br> {{ comment.created| timesince }} ago commented</small>
+                <br>
+                <small>  <a href="{% url 'recipe' comment.recipe.id %}">{{comment.recipe}}</a> </small>
+                <br>
+                <p style="color:#ffffff">"{{ comment }}"</p>
+                <br>
+            </div>
+        {% endfor %}

@@ -1,0 +1,21 @@
+{% for recipe in recipes %}
+            {% if request.user == recipe.autor %}
+            <a href="{% url 'update-recipe' recipe.id %}">Edit</a>
+            <a href="{% url 'delete-recipe' recipe.id %}">Delete</a>
+            {% endif %}
+            <div>
+            <div>
+                <img width="50px" src="{{ recipe.autor.avatar.url }} ">
+                <a href="{% url 'user-profile' recipe.autor.id %}">@{{ recipe.autor.username }}</a>
+
+            </div>
+
+                <h5 style="font-weight: bold;"><a  href="{% url 'recipe' recipe.id %}"> {{ recipe.name }}</a></h5>
+
+                <p>{{ recipe.description }}</p>
+                <img class="recipe_image_feed" src=" {{ recipe.recipe_image.url }}">
+                <br>
+                <small id="recipe_topic" >Topic: {{ recipe.topic.name }}</small>
+                <hr>
+            </div>
+        {% endfor %}

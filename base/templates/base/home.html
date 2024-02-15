@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'main.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+{% block content %}
+    <style>
+
+
+
+
+
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+
+    <div class="home-container">
+    <div class="topics_container">
+        {% include 'base/topics.html' %}
+    </div>
+    <div class="found_div">
+        <h5>
+            {{ recipe_count }} recipes found!
+        </h5>
+        <br>
+        <div>
+         <a class="a1" href="{% url 'add-recipe'  %}">+ Add your own recipe!</a>
+
+        </div>
+        <br>
+        <div>
+            {% include 'base/feed_component.html' %}
+        </div>
+    </div>
+    <div class="activity_container"  >
+    {% include 'base/activity_component.html' %}
+    </div>
+
+    </div>
+{% endblock content %}
+</body>
+</html>

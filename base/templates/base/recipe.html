@@ -1,0 +1,43 @@
+
+    {% extends 'main.html' %}
+    {% block content %}
+        <div class="recipe-container">
+        <div class="recipe_title_div">
+    <h1 class="recipe_title">Recipe for {{ recipe.name }}</h1>
+        <div class="user_div"> <h2>by: {{ recipe.autor }}</h2>
+        <img width="50px" src="{{ recipe.autor.avatar.url }}">
+        </div>
+        </div>
+        <div class="recipe_body">
+            <p  class="description" >{{ recipe.description }}</p>
+        <img class="recipe_image" id='recipe_recipe_img' width="20%" src="{{ recipe.recipe_image.url }}">
+
+        <h3>Recipe:</h3>
+        <p  class="recipe_text" >{{ recipe.text }}</p>
+        </div>
+        <br>
+        <div class="comment-wrapper">
+
+        <h3>Comments:</h3>
+
+        {% for comment in comments %}
+            <div class="comments_div">
+                <img width="50px" src="{{ comment.user.avatar.url }}">
+                <small class="comment_user_div">@{{ comment.user }}  {{ comment.created|timesince }} ago</small>
+                <p class="comment_body">{{ comment.body }}</p>
+                <br>
+
+            </div>
+        {% endfor %}
+        </div>
+
+    {% if request.user.is_authenticated %}
+    <div class=" comment_form ">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input class="comment_input" type="text" name="body" placeholder="Write your comment here!">
+    </form>
+    </div>
+    {% endif %}
+    </div>
+    {% endblock %}
